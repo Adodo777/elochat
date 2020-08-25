@@ -1,0 +1,60 @@
+<%- contentFor('head') %> <%- contentFor('body') %>
+<div class="login-container">
+  <form
+    action="/chat"
+    method="POST"
+    id="login-form"
+    class="animate__animated animate__fadeIn"
+  >
+    <h1>Elochat</h1>
+    <% if(typeof errorMessage !== 'undefined') { %>
+    <div id="login-error"><%= errorMessage %></div>
+    <% } %> <% if(typeof successMessage !== 'undefined') { %>
+    <div class="register-success"><%= successMessage %></div>
+    <% } %>
+    <div id="login-username-container">
+      <div id="login-input-container">
+        <i class="fas fa-user"></i>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Pseudo..."
+          autocomplete="off"
+        />
+      </div>
+      <div id="error"></div>
+    </div>
+
+    <div id="login-password-container">
+      <div class="login-password-input-container">
+        <i class="fas fa-lock"></i>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Mot de passe"
+        />
+      </div>
+      <div id="password-error"></div>
+    </div>
+
+    <button id="loginBtn">Se connecter</button>
+
+    <p id="redirect-register">
+      Pas encore inscris ?
+      <a href="/inscription">Par ici !</a>
+    </p>
+
+    <p id="copyright">
+      &copy; <span id="copyright-year"></span> Bryan Henryon &mdash;
+      <a href="https://www.bryanhenryon.fr" target="_blank" rel="noopener"
+        >www.bryanhenryon.fr</a
+      >
+    </p>
+  </form>
+</div>
+
+<%- contentFor('scripts') %>
+<script></script>
+<script src="js/index.js"></script>

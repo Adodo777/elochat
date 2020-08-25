@@ -1,0 +1,73 @@
+<%- contentFor('head') %>
+<%- contentFor('body') %>
+<nav class="animate__animated animate__fadeIn">
+  <ul>
+    <li>
+      <button id="home" class="active"><i class="fas fa-home fa-2x"></i></button>
+    </li>
+    <li>
+      <button id="online"><i class="fas fa-user-friends fa-2x"></i></button>
+    </li>
+    <li>
+      <button id="logout"><i class="fas fa-sign-out-alt fa-2x"></i></button>
+    </li>
+  </ul>
+</nav>
+
+<div class="container animate__animated animate__fadeIn">
+  <section id="messages">
+    <div id="welcome-message-container">
+      <div id="welcome-message">
+        <div class="sender">Elochat Bot 🤖</div>
+          <div class="body">
+            <p>
+              Bienvenue sur Elochat, votre nouveau service de messagerie en temps réel. Soyez respectueux envers les autres, échangez et passez un bon moment !
+            </p>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <form id="form">
+    <input
+      id="message-input"
+      placeholder="Taper message..."
+      autocomplete="off"
+    />
+    <button id="sendBtn">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </form>
+
+  <section id="users">
+    <h1>En ligne (<span id="users-connected"></span>)</h1>
+
+    <div id="online-users">
+      <div class="online-user"></div>
+    </div>
+  </section>
+</div>
+
+<div id="modal-container">
+  <div id="modal">
+    <p>Êtes-vous sûr de vouloir vous déconnecter ?</p>
+    <ul id="choice">
+      <li>
+        <button id="cancel">Annuler</button>
+      </li>
+      <li>
+        <a href="/" id="confirm-logout">Oui</a>
+      </li>
+  </div>
+</div>
+
+<%- contentFor('scripts') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js" integrity="sha512-rmZcZsyhe0/MAjquhTgiUcb4d9knaFc7b5xAfju483gbEXTkeJRUMIPk6s3ySZMYUHEcjKbjLjyddGWMrNEvZg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/locale/fr.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const user = "<%= user %>";
+  const genre = "<%= genre %>";
+</script>
+<script src="js/chat.js"></script>
+

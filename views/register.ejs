@@ -1,0 +1,68 @@
+<%- contentFor('head') %> <%- contentFor('body') %>
+<div id="register-container">
+  <form
+    action="/"
+    method="POST"
+    id="register-form"
+    class="animate__animated animate__fadeIn"
+  >
+    <h1>Elochat</h1>
+    <div id="username-container">
+      <div id="input-container">
+        <i class="fas fa-user"></i>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Pseudo"
+          autocomplete="off"
+        />
+      </div>
+      <div id="username-error"></div>
+      <% if(typeof errorMessage !== 'undefined') { %>
+      <div id="unavailable-username" class="animate__animated animate__shakeX">
+        <%= errorMessage %>
+      </div>
+      <% } %>
+    </div>
+
+    <div id="password-container">
+      <div class="password-input-container">
+        <i class="fas fa-lock"></i>
+        <input
+          type="password"
+          name="password"
+          placeholder="Mot de passe"
+          id="password"
+        />
+      </div>
+      <div id="password-error"></div>
+      <div class="password-confirm-input-container">
+        <i class="fas fa-lock"></i>
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirmer le mot de passe"
+        />
+      </div>
+      <div id="confirm-password-error"></div>
+    </div>
+
+    <div id="genre">
+      <input type="radio" name="genre" id="male" value="male" checked />
+      <label for="male">Homme</label>
+
+      <input type="radio" name="genre" id="female" value="female" />
+      <label for="female">Femme</label>
+    </div>
+
+    <button id="loginBtn">S'inscrire</button>
+
+    <p id="redirect-login">
+      Déjà un compte ?
+      <a href="/">Connectez-vous</a>
+    </p>
+  </form>
+</div>
+<%- contentFor('scripts') %>
+<script src="js/register.js"></script>

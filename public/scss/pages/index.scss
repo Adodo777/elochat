@@ -1,0 +1,139 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  height: 100vh;
+}
+
+.login-container h1 {
+  margin-bottom: 50px;
+  color: var(--primary-color);
+  font-family: "Pacifico", cursive;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background: #f8f8f8f8;
+}
+
+.register-success {
+  text-align: center;
+  margin-bottom: 35px;
+  max-width: 80%;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#login-error {
+  text-align: center;
+  margin-bottom: 35px;
+  max-width: 80%;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+#login-username-container {
+  margin-bottom: 35px;
+}
+
+#login-input-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--primary-color);
+  max-width: 100%;
+}
+
+#login-input-container .fa-user {
+  color: var(--primary-color);
+  padding: 0 5px;
+}
+
+#username {
+  border: none;
+  background: none;
+  outline: none;
+  padding: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#username::placeholder {
+  color: #707070bd;
+  font-size: 0.9rem;
+}
+
+#login-password-container {
+  margin-bottom: 35px;
+}
+
+.login-password-input-container {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+#loginBtn {
+  background: var(--primary-color);
+  border-radius: 5px;
+  padding: 10px 50px;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+#error {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  margin-top: 5px;
+}
+
+#redirect-register {
+  margin: 35px 0 75px 0;
+  text-align: center;
+
+  a {
+    color: #000;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+#copyright {
+  text-align: center;
+
+  a {
+    color: #000;
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .login-container {
+    max-width: 500px;
+    margin: auto;
+  }
+
+  #login-username-container,
+  .login-password-container {
+    max-width: 55%;
+  }
+}
