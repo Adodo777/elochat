@@ -82,7 +82,7 @@ function sendMessage(e) {
     const div = document.createElement("div");
     div.classList.add("own-message");
     div.innerHTML = `
-    <p>${input.value}</p>
+    <p>${escapeInput(input.value)}</p>
     <div class="date">${moment().format("LT")}</div>
     `;
 
@@ -96,6 +96,15 @@ function sendMessage(e) {
     input.value = "";
     messages.scrollTop = messages.scrollHeight;
   }
+}
+
+function escapeInput(input) {
+  return String(input)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 socket.on("message", (msg) => {

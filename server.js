@@ -7,6 +7,7 @@ const expressLayouts = require("express-ejs-layouts");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const router = require("./routes/index");
+const sanitizeHtml = require("sanitize-html");
 
 const app = express();
 const server = http.createServer(app);
@@ -71,9 +72,18 @@ io.on("connection", (socket) => {
   });
 
   socket.on("message", (msg) => {
+    
+    const sanitizedMsg = sanitizeHtml(msg.body, {
+      disallowedTagsMode: 'escape',
+      allowedTags: [],
+      allowedAttributes: false,
+      allowedIframeHostnames: []
+    });
+
+
     socket.broadcast.emit("message", {
       user: msg.user,
-      body: msg.body,
+      body: sanitizedMsg
     });
   });
 });
